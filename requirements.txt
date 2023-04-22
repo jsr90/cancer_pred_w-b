@@ -1,0 +1,6 @@
+pandas
+numpy
+wandb
+argparse
+fastai
+scikit-learn
