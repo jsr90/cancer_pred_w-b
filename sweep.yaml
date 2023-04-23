@@ -1,0 +1,15 @@
+program: train.py  # Replace with the name of your script
+method: grid           # Sweep method - random or grid
+project: Assignment2_sweep
+entity: jesus-saturdays
+metric:
+  name: accuracy         # The metric you want to optimize
+  goal: maximize         # You want to maximize accuracy
+name: CancerClassificationSweep
+parameters:
+  seed:
+    values: [42, 1, 25]   # Specify the seeds you want to try
+  test_size:
+    values: [0.2, 0.3, 0.4] # Specify the test sizes you want to try
+  model_index:
+    values: [0, 1, 2, 3, 4]  # Specify the model indices you want to try

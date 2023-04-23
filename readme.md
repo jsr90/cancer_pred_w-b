@@ -48,6 +48,22 @@ python train.py --model_index 1
 
 This will override the default model (LogisticRegression) and train a RidgeClassifier model instead.
 
+You can also use the provided YAML configuration file to run a hyperparameter sweep using Weights & Biases. This will help you find the best combination of hyperparameters for your model.
+
+First, create the sweep using the YAML configuration file:
+
+```
+wandb sweep sweep.yaml
+```
+
+This command will generate a sweep ID. Copy the sweep ID, and use it to launch the sweep agent:
+
+```
+wandb agent SWEEP_ID
+```
+
+Replace "SWEEP_ID" with the actual ID generated in the previous step. This command will run multiple training runs with different hyperparameter combinations as specified in the YAML configuration file. You can track the progress of your sweep and visualize the performance of different hyperparameter configurations in the Weights & Biases dashboard.
+
 ## Conclusion
 By leveraging Weights & Biases for tracking experiments, we were able to train and compare multiple models on the Cancer Dataset. This approach enables efficient model selection and aids in improving the overall performance of the predictive models. As you continue working on this project, consider exploring additional models, feature engineering techniques, or hyperparameter tuning to further improve the results.
 

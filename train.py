@@ -109,7 +109,12 @@ def train(config: SimpleNamespace) -> None:
 
     model = select_model(config.model_index)
 
-    run = wandb.init(project="Assignment2", entity="saturdays", job_type="training", name=model.__str__()[:-2])
+    run = wandb.init(project="Assignment2_sweep", entity="jesus-saturdays", job_type="training", name=model.__str__()[:-2])
+
+    # Save parameters to wandb
+    wandb.config.seed = config.seed
+    wandb.config.test_size = config.test_size
+    wandb.config.model_index = config.model_index
 
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
