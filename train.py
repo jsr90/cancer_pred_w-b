@@ -18,7 +18,6 @@ from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
 default_config = SimpleNamespace(
     framework="fastai",
     seed=42,
-    log_preds=False,
     data_path="data/Cancer_Data.csv",
     test_size=0.33,
     model_index=0
@@ -30,7 +29,6 @@ def parse_args() -> None:
     """
     argparser = argparse.ArgumentParser(description='Process hyper-parameters')
     argparser.add_argument('--seed', type=int, default=default_config.seed, help='random seed')
-    argparser.add_argument('--log_preds', type=bool, default=default_config.log_preds, help='log model predictions')
     argparser.add_argument('--data_path', type=str, default=default_config.data_path, help='path to csv dataset')
     argparser.add_argument('--test_size', type=float, default=default_config.test_size, help='size of test split from data')
     argparser.add_argument('--model_index', type=int, default=default_config.model_index, help="list of index: 0(default)=LogisticRegression 1=RidgeClassifier 2=SGDClassifier 3=PassiveAggressiveClassifier 4=Perceptron")
